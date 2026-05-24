@@ -16,8 +16,8 @@ for material, price in price_list.items():
     print(f"  {material}: {price:.2f} руб.")
 
 # --- Добавляем 2 новых материала ---
-price_list["Гипс"] = 350.00
-price_list["Керамзит"] = 1200.00
+price_list["Гипс"] = 850.00
+price_list["Керамзит"] = 230.00
 print(f"\nПосле добавления 2 материалов: {len(price_list)} позиций")
 
 # --- Изменяем цену одного материала (+10%) ---
