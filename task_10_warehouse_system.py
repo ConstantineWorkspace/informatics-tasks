@@ -30,3 +30,16 @@ print(f"ОБЩАЯ СТОИМОСТЬ: {total_cost:.2f} руб")
 most_expensive = max(warehouse, key=lambda x: warehouse[x]["quantity"] * warehouse[x]["price"])
 most_exp_cost = warehouse[most_expensive]["quantity"] * warehouse[most_expensive]["price"]
 print(f"Самый дорогой: {most_expensive} ({most_exp_cost:.2f} руб)")
+# --- Критические остатки ---
+critical = {k: v for k, v in warehouse.items() if v["quantity"] < v["min_quantity"]}
+print(f"⚠ КРИТИЧЕСКИЕ ОСТАТКИ ({len(critical)}):")
+for name, data in critical.items():
+    print(f"  - {name}: {data['quantity']} < {data['min_quantity']}")
+
+# --- Выдача материала со склада ---
+print("=== ВЫДАЧА МАТЕРИАЛА ===")
+material = "Цемент"
+amount = 25
+warehouse[material]["quantity"] -= amount
+print(f"✓ Выдано {amount} единиц '{material}'")
+print(f"Остаток: {warehouse[material]['quantity'] + amount} → {warehouse[material]['quantity']}")
