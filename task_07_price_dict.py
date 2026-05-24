@@ -14,3 +14,25 @@ print("=== ПРАЙС-ЛИСТ МАТЕРИАЛОВ ===")
 print("Исходный прайс-лист:")
 for material, price in price_list.items():
     print(f"  {material}: {price:.2f} руб.")
+
+# --- Добавляем 2 новых материала ---
+price_list["Гипс"] = 350.00
+price_list["Керамзит"] = 1200.00
+print(f"\nПосле добавления 2 материалов: {len(price_list)} позиций")
+
+# --- Изменяем цену одного материала (+10%) ---
+price_list["Цемент"] = round(price_list["Цемент"] * 1.10, 2)
+print(f"Новая цена Цемента (+10%): {price_list['Цемент']:.2f} руб.")
+
+# --- Удаляем один материал ---
+del price_list["Песок"]
+print(f"После удаления Песка: {len(price_list)} позиций")
+
+# --- Средняя цена ---
+avg_price = round(sum(price_list.values()) / len(price_list), 2)
+print(f"\nСредняя цена: {avg_price:.2f} руб.")
+
+# --- Итоговый прайс-лист ---
+print("\nИтоговый прайс-лист:")
+for material, price in price_list.items():
+    print(f"  {material}: {price:.2f} руб.")
