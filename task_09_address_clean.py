@@ -24,3 +24,9 @@ for addr in addresses:
     # Добавляем пробел после запятой если его нет
     addr = addr.replace(",", ", ").replace(",  ", ", ")
     cleaned.append(addr)
+    # --- Вывод результата ---
+print("\n=== СРАВНЕНИЕ ===")
+for i, (before, after) in enumerate(zip(addresses, cleaned), 1):
+    print(f"#{i}")
+    print(f"ДО:    '{before}'")
+    print(f"ПОСЛЕ: '{after}'")
