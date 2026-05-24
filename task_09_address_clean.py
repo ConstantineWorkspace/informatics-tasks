@@ -12,3 +12,16 @@ print("=== ОЧИСТКА АДРЕСОВ ===")
 print("Исходные адреса:")
 for i, addr in enumerate(addresses, 1):
     print(f"  #{i}: '{addr}'")
+    # --- Очистка адресов ---
+cleaned = []
+for addr in addresses:
+    # Убираем лишние пробелы по краям
+    addr = addr.strip()
+    # Добавляем пробел после сокращений г., ул., д.
+    addr = addr.replace("г.", "г. ").replace("ул.", "ул. ").replace("д.", "д. ")
+    # Убираем лишние пробелы внутри
+    while "  " in addr:
+        addr = addr.replace("  ", " ")
+    # Добавляем пробел после запятой если его нет
+    addr = addr.replace(",", ", ").replace(",  ", ", ")
+    cleaned.append(addr)
